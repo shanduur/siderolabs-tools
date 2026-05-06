@@ -328,6 +328,11 @@ vars:
   python_setuptools_sha256: 7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9
   python_setuptools_sha512: 5d70e9efd818245fb8119a4eed64d776078469ed884facc188f141ea491efd9fde5c10c928d3236ea5e2e431b16616f18ed14870b867f95e6320251707332395
 
+  # renovate: datasource=github-releases versioning=python depName=pypa/wheel
+  python_wheel_version: 0.47.0
+  python_wheel_sha256: 7077424e2d404e5ed1c1be5075b05afa1807ccf251939a5e753567fdcfcd7a58
+  python_wheel_sha512: c07fa4a4e9efa28680f5ee7601058d71d9de3f005771eb452029a3866d0734a5a341d51b73f90f94773e9bb39a1438755aa1f9a34a24929c253047b7f7e65708
+
   # renovate: datasource=github-tags depName=rhash/RHash
   rhash_version: v1.4.6
   rhash_sha256: 9f6019cfeeae8ace7067ad22da4e4f857bb2cfa6c2deaa2258f55b2227ec937a
