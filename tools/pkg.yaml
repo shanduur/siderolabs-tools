@@ -61,6 +61,7 @@ dependencies:
   - stage: python-markupsafe
   - stage: python-packaging
   - stage: python-setuptools
+  - stage: python-wheel
   - stage: python3
   - stage: rhash
   - stage: secilc
