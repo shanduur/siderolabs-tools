@@ -18,7 +18,6 @@ dependencies:
   - stage: dwarfutils
   - stage: elfutils
   - stage: expat
-  - stage: fakeroot
   - stage: findutils
   - stage: flex
   - stage: gawk
@@ -51,7 +50,6 @@ dependencies:
   - stage: patch
   - stage: perl
   - stage: pkgconf
-  - stage: policycoreutils
   - stage: pyelftools
   - stage: python-build
   - stage: python-flit_core

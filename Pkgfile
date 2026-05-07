@@ -92,11 +92,6 @@ vars:
   expat_sha256: 586494499ac3ad46d87f3beda7b1f770c1c8026a9b60e151593f8b29089a52ca
   expat_sha512: 6219b2497ef8c59ee5513604d5391031e8eaf2dddce6cb4396a86b2d618d129080a0f6093b00ea994328ada5d06b3cfb9871d74db185e950fda0436a713e8c57
 
-  # renovate: datasource=git-tags extractVersion=^upstream/(?<version>.*)$ depName=https://salsa.debian.org/clint/fakeroot.git
-  fakeroot_version: 1.37.2
-  fakeroot_sha256: bfc22c23fa402a16a6e60b2ed4c2d26a9a57807de9b38ba24b78cc3429722939
-  fakeroot_sha512: bba207ae5b52fbf8deeb4268de9f1953103c3a08433172a678cdb5eba02c9cf29ca736ca2bca94f6e9ad85ab433131ad4367d68f503e613fc6a9fa45359d2222
-
   # renovate: datasource=git-tags extractVersion=^v(?<version>.*)$ depName=git://git.savannah.gnu.org/findutils.git
   findutils_version: 4.10.0
   findutils_sha256: 1387e0b67ff247d2abde998f90dfbf70c1491391a59ddfecb8ae698789f0a4f5
@@ -344,8 +339,6 @@ vars:
   libselinux_sha512: 5783f737675eb94e0bdff082013589e5bddfa0669a357df185eb89f4f88cec8b90779e86c4b17b58f5c248175da0208c80cc2642046e348c7384dd799f1ba4c1
   libsepol_sha256: d555586797fa9f38344496d2a7ec1147b6caaf3fcc44c42d8d5173edd7a79a71
   libsepol_sha512: 95a12779a41577d02a13922d1a484954a6b041b3be9a76836e179ab3a4e4b83b90df63e3a3f32b0862466ed8748280fa9b820f8dc96a3887bcdde081947e7450
-  policycoreutils_sha256: 8dbd50d868acbfae9d1a972f6bbb2587f06c9ec73308d11af6acb3a401de9832
-  policycoreutils_sha512: 80e7cdd0c27c010c05758fcbe7da15cc112d9328eec726ae7a0d45d42b88b60aad2ebbe589062c84569a981ed7008832706ca4e538d1d97d31496f4333450e2f
   secilc_sha256: 6658071d6f1044184d3973062a798187537ae1c3ddb4c31afd417df333316c10
   secilc_sha512: 91b793c5f4c3d1028abf0d4e3ea5c6090470fd94f4774dcd24a6f2ceef0a2fedf37cee4a2303283b79689644f53aa1a576e938026e1ff9d84e490ebabc63a6eb
 
