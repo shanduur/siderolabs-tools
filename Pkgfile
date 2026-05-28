@@ -1,11 +1,11 @@
-# syntax = ghcr.io/siderolabs/bldr:v0.5.6
+# syntax = ghcr.io/siderolabs/bldr:v0.6.0
 
 # Sync bldr image with Makefile
 
 format: v1alpha2
 
 vars:
-  TOOLCHAIN_IMAGE: ghcr.io/siderolabs/toolchain:v1.14.0-alpha.0-7-gda3298a
+  TOOLCHAIN_IMAGE: ghcr.io/siderolabs/toolchain:v1.14.0-alpha.0-9-g6fe27c3
 
   # renovate: datasource=github-tags depName=argp-standalone/argp-standalone
   argp_standalone_version: 1.5.0
@@ -43,14 +43,14 @@ vars:
   bzip2_sha512: 083f5e675d73f3233c7930ebe20425a533feedeaaa9d8cc86831312a6581cefbe6ed0d08d2fa89be81082f2a5abdabca8b3c080bf97218a1bd59dc118a30b9f3
 
   # renovate: datasource=custom.ca-certificates extractVersion=^/ca/cacert-(?<version>.+)\.pem$ versioning=regex:^(?<major>\d+)-(?<minor>\d+)-(?<patch>\d+)$ depName=ca-certificates
-  ca_certificates_version: 2026-03-19
-  ca_certificates_sha256: b6e66569cc3d438dd5abe514d0df50005d570bfc96c14dca8f768d020cb96171
-  ca_certificates_sha512: efe2d37cbb60532f7b9be99c3c2826b97c55661b7880f6a108c30ee1ebf270f3dee69de164f241def51fccbe2f3d95cf6882bcc59ba72f48a2a316b81f03bb55
+  ca_certificates_version: 2026-05-14
+  ca_certificates_sha256: 86a1f3366afac7c6f8ae9f3c779ac221129328c43f0ab2b8817eb2f362a5025c
+  ca_certificates_sha512: 161cb987d3da5aca72083f346c3b51394cfe76d52c263d8c1c611e29944c8798aae054f2ef2f7109e035e3a1e27102d8e6d520cf34f7c5a951c9dbb280b29620
 
   # renovate: datasource=git-tags extractVersion=^v(?<version>.*)$ depName=https://gitlab.kitware.com/cmake/cmake.git
-  cmake_version: 4.3.2
-  cmake_sha256: b0231eb39b3c3cabdc568c619df78208a7bd95ea10c9b2236d61218bac1b367d
-  cmake_sha512: ee78390be3907f4ce398e41ece9067952a25c2cba2edd9cb17f12827466d5bf2476ad8a2bba5df95b3d7950bb5122cb1754d005b6544e43901949869adf8c74a
+  cmake_version: 4.3.3
+  cmake_sha256: cba4bb7a44edf2877bb6f059932896383babe435b3a8c3b5df48b4aa41c9bb85
+  cmake_sha512: 7f6af59cc53ea412311d54aeb52ad6981c46c53bac1ce0d3bf5944e85952534888267ea952596ad612e2b582f6897a818566963c85b88099f698df0803fe29d9
 
   # renovate: datasource=git-tags extractVersion=^v(?<version>.*)$ depName=git://git.savannah.gnu.org/coreutils.git
   coreutils_version: 9.11
@@ -73,9 +73,9 @@ vars:
   diffutils_sha512: 10b17cf1dcdfa9ca0e5db91d62c4a079ebe9fd7eafa3aaebd4eb7e6206e4d753f348496622aa281e1bd7f7fcde65ce4a886dcc4acbb59332ef980f224197b4e4
 
   # renovate: datasource=git-tags extractVersion=^v(?<version>.*)$ depName=git://git.kernel.org/pub/scm/utils/dtc/dtc.git
-  dtc_version: 1.7.2
-  dtc_sha256: 92d8ca769805ae1f176204230438fe52808f4e1c7944053c9eec0e649b237539
-  dtc_sha512: 30f3611175a5c29556282f3f2894701a5837eb869608d89d78c280af448bbc3a5b6c83f51c28f991847c0eb7c42aa57599bbc31433f1b3b2c8d162cb2169b91f
+  dtc_version: 1.8.0
+  dtc_sha256: b298e24ce4824bd2e2af60cf6a3d2815e555b3e44c431eadad0b52798c83a833
+  dtc_sha512: 3fe422f1a1d5f920b96d2336f757a4b9ce1363b1d6595e213e4d6a2bcaf7bf30cc75648195e1540b72382c34031c74231fa741a4edb0a32f74d2914f0f487c44
 
   # renovate: datasource=github-tags extractVersion=^v(?<version>.*)$ depName=davea42/libdwarf-code
   dwarfutils_version: 2.3.1
@@ -88,9 +88,9 @@ vars:
   elfutils_sha512: e1e1fdf4f7f72bf520deb0103bb8fd208dc247bab14af100c6fb56d38c0ef6c6d54ff5bd15b84e4f70e2b2ea481e5999fea2842360f8932a861122df79b5fc8f
 
   # renovate: datasource=github-releases extractVersion=^R_(?<version>.*)$ depName=libexpat/libexpat
-  expat_version: 2_8_0
-  expat_sha256: 586494499ac3ad46d87f3beda7b1f770c1c8026a9b60e151593f8b29089a52ca
-  expat_sha512: 6219b2497ef8c59ee5513604d5391031e8eaf2dddce6cb4396a86b2d618d129080a0f6093b00ea994328ada5d06b3cfb9871d74db185e950fda0436a713e8c57
+  expat_version: 2_8_1
+  expat_sha256: f5833dd2e1cd7739ec9182804a1a29c4f0cc7c2f26b633d3a2188b7766a88ecb
+  expat_sha512: c7fb801051bee2cbf86b96ade184b9ef2fa399eba41e6c1e036c10ce14806e015cebff091df1a091a832231f839f3216e45242df8facd6abd83ffc1199d4f9d6
 
   # renovate: datasource=git-tags extractVersion=^v(?<version>.*)$ depName=git://git.savannah.gnu.org/findutils.git
   findutils_version: 4.10.0
@@ -188,9 +188,9 @@ vars:
   libuv_sha512: c23bb26f8fdcf678dbf14bcee9855830927a40b8ae64dfa287ef1e910f37ad30cb868ecdeaad6f7b2bf3f3fccca1a7282a31b22c547206b672f923d0651f5b0c
 
   # renovate: datasource=github-releases extractVersion=^llvmorg-(?<version>.*)$ depName=llvm/llvm-project
-  llvm_version: 22.1.5
-  llvm_sha256: 7972b87b705a003ce70ab55f9f0fb495d156887cba0eb296d284731139118e2c
-  llvm_sha512: 68de113906ec0c843a9346ecd06bff352146869f1f28b5600ff907125d77202692b6f68bd169bcd74ae5b82e0ad5548ea99c2405540abea36880d80e373744ff
+  llvm_version: 22.1.6
+  llvm_sha256: 6e0b376a1f6d9873e7dfb09ae6e04b9c7024400f01733fa4c29be69d5c138bc2
+  llvm_sha512: 39ee3a66b92abe4eed5f9db086f6279faa72d8a3fe1beee8897da2dcc8b6982d169054b394995090c9cc6519f50a03a7fc465905dda3c61eb1063b9ba4696b0c
 
   # renovate: datasource=git-tags extractVersion=^v(?<version>.*)$ depName=git://git.savannah.gnu.org/m4.git
   m4_version: 1.4.21
@@ -279,9 +279,9 @@ vars:
   pyelftools_sha512: 7f4ef37da7fda75125cb95ced2f3084848943592eff7deae7ae917508f1cd5281c96960ee3bbc6e503e71a4e2196622cd68cc67e3df1f4cd99b9b675f14fd58c
 
   # renovate: datasource=github-tags extractVersion=^v(?<version>.*)$ depName=python/cpython
-  python_version: 3.14.4
-  python_sha256: d923c51303e38e249136fc1bdf3568d56ecb03214efdef48516176d3d7faaef8
-  python_sha512: 89a7f8b8a31f48d150badb4751df137d47d9014c9c422649a1a55aef5618aa7f0259dd18c151e6804fa8312c6a21544332a9f630ee81150dc00505637e62bb8c
+  python_version: 3.14.5
+  python_sha256: 7e32597b99e5d9a39abed35de4693fa169df3e5850d4c334337ffd6a19a36db6
+  python_sha512: efbaf629703cd004f6b7bc75fb16df794185589adaf8807cd45928f212271045a399df3cd9573e47c8708fb5c5002f9d4efe4e41dde4313b81a3e9d73158769f
 
   # renovate: datasource=github-releases versioning=python depName=pypa/build
   python_build_version: 1.5.0
@@ -299,9 +299,9 @@ vars:
   python_gpep517_sha512: 463c3812f388ea7ef83aaf6b3b90de4036b0a8200038a654621822c02d46627f7adf2ed4c7accf016293f89b8c3a2080d9ac80d2f82caaa3fdd370aa98c4335b
 
   # renovate: datasource=github-tags versioning=python depName=pypa/installer
-  python_installer_version: 1.0.0
-  python_installer_sha256: e1391ab5a0787b767570c17b1174e304f2e9c9179dbc9ef8cf16f61f4ab162e0
-  python_installer_sha512: 6d222e9a81ae88b70682e45f1152fad0a7f197b5eda71671b178b78dcf944d7187329ae1856b6e8b93333711428b20d8c3ecdab0e1855b38602c3815ec5dfcdb
+  python_installer_version: 1.0.1
+  python_installer_sha256: 391b8068eb6b5629496a71e33b948b10c31bea77a12d302034323406ee03ffd1
+  python_installer_sha512: 6acd541201c5f2b7dc0ae8b8e6d5137ad4eba4faa575e7ddabb239213f03c758f8de3b5888b329b7782397f36610fc877800fb6f41e4f0ee2789111e5e90cf18
 
   # renovate: datasource=github-releases versioning=python depName=pallets/jinja
   python_jinja2_version: 3.1.6
@@ -368,9 +368,9 @@ vars:
   texinfo_sha512: fb1a16df67f870e79c31f4b96d8431d9c944eb84e5aa71e9d94890417ce63047918d55620fa63bd582232c47e9b412a6f95a11a2479f53f40e92e49bc018d926
 
   # renovate: datasource=git-tags extractVersion=^v(?<version>.*)$ depName=git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git
-  util_linux_version: 2.42.0
-  util_linux_sha256: 3452b260bbaa775d6e749ac3bb22111785003fc1f444970025c8da26dfa758e9
-  util_linux_sha512: 909bba6c38d43ca4cb9bd974c399b4f0537b54709ac43e8acc823d9d9979fbc7523572469eb452b13c86116675d6d2ebb3764444781204f7e5bd0156252635d7
+  util_linux_version: 2.42.1
+  util_linux_sha256: 82e9158eb12a9b0b569d84e1687fed9dd18fe89ccd8ef5ac3427218a7c0d7f7f
+  util_linux_sha512: 18dd2cfc353e389e4eeb37375473e7b3d0ab7fcd059a881d7cd0815ddcaa7b5795db92fcf56e531089267c8e69936c4fd3abd97786aa111b115996203aadbca2
 
   # renovate: datasource=github-releases depName=tukaani-project/xz
   xz_version: v5.8.3

@@ -20,10 +20,38 @@ steps:
 
         patch -p1 < /pkg/patches/fix-memory-mf_exec-on-aarch64.patch
         patch -p1 < /pkg/patches/llvm-stack-size.patch
+    build:
       - |
+        # Stage 1: bootstrap clang/lld with the host GCC.
+        # Minimal config — only the pieces needed to drive stage 2.
+        cmake -S llvm -B build-stage1 -G Ninja \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DLLVM_DEFAULT_TARGET_TRIPLE="${ARCH}-linux-musl" \
+              -DLLVM_HOST_TRIPLE="${ARCH}-linux-musl" \
+              -DLLVM_ENABLE_PROJECTS="clang;lld" \
+              -DLLVM_TARGETS_TO_BUILD=Native \
+              -DLLVM_INCLUDE_TESTS=OFF \
+              -DLLVM_INCLUDE_DOCS=OFF \
+              -DLLVM_INCLUDE_EXAMPLES=OFF \
+              -DLLVM_INCLUDE_BENCHMARKS=OFF \
+              -DLLVM_ENABLE_BINDINGS=OFF \
+              -DLLVM_ENABLE_ASSERTIONS=OFF \
+              -DLLVM_ENABLE_LTO=OFF
+        cmake --build build-stage1
+      - |
+        # Stage 2: rebuild full LLVM using the stage 1 clang+lld, with ThinLTO.
+        STAGE1=$(pwd)/build-stage1
+        # Stage 1 clang doesn't auto-detect the toolchain image's GCC install
+        # dir, so point it explicitly — dirname of libgcc.a is the install dir.
+        GCC_INSTALL_DIR=$(dirname "$(gcc -print-libgcc-file-name)")
+        export CFLAGS="${CFLAGS:-} --gcc-install-dir=${GCC_INSTALL_DIR}"
+        export CXXFLAGS="${CXXFLAGS:-} --gcc-install-dir=${GCC_INSTALL_DIR}"
         cmake -S llvm -B build -G Ninja \
               -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_INSTALL_PREFIX=/usr \
+              -DCMAKE_C_COMPILER="${STAGE1}/bin/clang" \
+              -DCMAKE_CXX_COMPILER="${STAGE1}/bin/clang++" \
+              -DLLVM_USE_LINKER=lld \
               -DLLVM_DEFAULT_TARGET_TRIPLE="${ARCH}-linux-musl" \
               -DLLVM_HOST_TRIPLE="${ARCH}-linux-musl" \
               -DLLVM_ENABLE_PROJECTS="clang;lld" \
@@ -35,11 +63,9 @@ steps:
               -DLLVM_INCLUDE_BENCHMARKS=OFF \
               -DLLVM_ENABLE_BINDINGS=OFF \
               -DLLVM_INSTALL_UTILS=ON \
-              -DLLVM_TARGETS_TO_BUILD='ARM;AArch64;X86' \
+              -DLLVM_TARGETS_TO_BUILD=Native \
               -DLLVM_ENABLE_ASSERTIONS=OFF \
-              -DLLVM_ENABLE_LTO=ON
-    build:
-      - |
+              -DLLVM_ENABLE_LTO=Thin
         cmake --build build
     install:
       - |
