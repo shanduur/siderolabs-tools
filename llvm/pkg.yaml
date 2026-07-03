@@ -63,15 +63,17 @@ steps:
               -DLLVM_INCLUDE_BENCHMARKS=OFF \
               -DLLVM_ENABLE_BINDINGS=OFF \
               -DLLVM_INSTALL_UTILS=ON \
-              -DLLVM_TARGETS_TO_BUILD=Native \
+              -DLLVM_TARGETS_TO_BUILD="X86;AArch64" \
               -DLLVM_ENABLE_ASSERTIONS=OFF \
               -DLLVM_ENABLE_LTO=Thin
         cmake --build build
     install:
       - |
         DESTDIR=/rootfs cmake --install build
-        # remove LLVM development files
-        rm -rf /rootfs/usr/include /rootfs/usr/lib/cmake /rootfs/usr/lib/*.a
+        # remove LLVM development files, but keep /usr/include: rustc's C++ LLVM
+        # shim (rustc_llvm) needs the LLVM headers (llvm/Config/llvm-config.h, …)
+        # to build against this LLVM.
+        rm -rf /rootfs/usr/lib/cmake /rootfs/usr/lib/*.a
     test:
       - |
         # Validate usrmerge symlinks from toolchain did not get overwritten
